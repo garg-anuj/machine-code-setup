@@ -25,7 +25,7 @@ export const cartSlice = createSlice({
       }
       state.totalQuantity++;
       state.totalAmount = state.items.reduce((total, item) => {
-        total = total + item?.price;
+        total = total + item?.quantity * item?.price;
         return total;
       }, 0);
     },

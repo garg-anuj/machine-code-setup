@@ -11,7 +11,9 @@ const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleAddToCartBtn = () => {
+  const handleAddToCartBtn = (event) => {
+    event.stopPropagation();
+
     dispatch(addToCart(product));
   };
 
@@ -34,6 +36,11 @@ const ProductCard = ({ product }) => {
           <div className="addToCartBtn">
             <button onClick={handleAddToCartBtn}>Add</button>
           </div>
+          {/* <div className="counterBtn">
+            <button className="incrementBtn">-</button>
+            {2}
+            <button className="decrementBtn">+</button>
+          </div> */}
         </div>
       </div>
     </div>

@@ -1,8 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../store/cartSlice";
+import { addToCart, removeFromCart } from "../../store/cartSlice";
 
 import { EMPTY_OBJECT } from "./../../config/constantObj";
-import { useNavigate } from "react-router-dom";
 import "./cartCard.css";
 
 const CartCard = ({ product }) => {
@@ -15,14 +15,13 @@ const CartCard = ({ product }) => {
     quantity,
   } = product || EMPTY_OBJECT;
 
-  console.log(quantity);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleAddToCartBtn = (event) => {
-    event.stopPropagation();
-    dispatch(addToCart(product));
-  };
+  // const handleAddToCartBtn = (event) => {
+  //   event.stopPropagation();
+  //   dispatch(addToCart(product));
+  // };
 
   const handleIncreaseBtn = (event) => {
     event.stopPropagation();
@@ -31,7 +30,7 @@ const CartCard = ({ product }) => {
 
   const handleDecreaseBtn = (event) => {
     event.stopPropagation();
-    // dispatch(removeToCart(product));
+    dispatch(removeFromCart(id));
   };
 
   return (

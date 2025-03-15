@@ -29,7 +29,24 @@ export const cartSlice = createSlice({
         return total;
       }, 0);
     },
-    removeFromCart: (state, action) => {},
+    removeFromCart: (state, action) => {
+      const id = action.payload;
+      const existingItem = state.items.find((item) => item?.id === id);
+
+      console.log(id);
+      console.log(existingItem);
+
+      if (existingItem) {
+        state.totalQuantity = existingItem.quantity - 1;
+        console.log("worling", state.totalQuantity);
+
+        state.totalAmount = state.items.reduce((total, item) => {
+          total = total + item?.quantity * item?.price;
+        }, 0);
+      } else {
+        state.totalQuantity = 0;
+      }
+    },
   },
 });
 

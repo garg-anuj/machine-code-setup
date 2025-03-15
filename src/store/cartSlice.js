@@ -31,20 +31,21 @@ export const cartSlice = createSlice({
     },
     removeFromCart: (state, action) => {
       const id = action.payload;
-      const existingItem = state.items.find((item) => item?.id === id);
-
-      console.log(id);
-      console.log(existingItem);
+      const existingItem = state.items.find((item) => item.id === id);
 
       if (existingItem) {
-        state.totalQuantity = existingItem.quantity - 1;
-        console.log("worling", state.totalQuantity);
+        if (existingItem.quantity > 1) {
+          existingItem.quantity--;
+        } else {
+          state.items = state.items.filter((item) => item.id !== id);
+        }
 
-        state.totalAmount = state.items.reduce((total, item) => {
-          total = total + item?.quantity * item?.price;
-        }, 0);
-      } else {
-        state.totalQuantity = 0;
+        // Update totalQuantity & totalAmount
+        state.totalQuantity--;
+        state.totalAmount = state.items.reduce(
+          (total, item) => total + item.quantity * item.price,
+          0
+        );
       }
     },
   },

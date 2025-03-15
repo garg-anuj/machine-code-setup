@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import ProductCard from "../../components/ProductCard/ProductCard";
 
 const Cart = () => {
-  const selector = useSelector((state) => state.cart);
+  const selector = useSelector((state) => state?.cart);
 
   if (!selector?.items.length) {
     return <div>Cart is empty</div>;

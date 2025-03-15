@@ -1,17 +1,28 @@
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../store/cartSlice";
 
 import { EMPTY_OBJECT } from "./../../config/constantObj";
-import "./productCard.css";
+import { useNavigate } from "react-router-dom";
+import "./cartCard.css";
 
-const ProductCard = ({ product }) => {
+const CartCard = ({ product }) => {
   const { image = "", category, name, price, id } = product || EMPTY_OBJECT;
+  const cartSelector = useSelector((state) => state?.cart);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleAddToCartBtn = (event) => {
+    event.stopPropagation();
+    dispatch(addToCart(product));
+  };
+
+  const handleIncreaseBtn = (event) => {
+    event.stopPropagation();
+    dispatch(addToCart(product));
+  };
+
+  const handleDecreaseBtn = (event) => {
     event.stopPropagation();
     dispatch(addToCart(product));
   };
@@ -35,10 +46,19 @@ const ProductCard = ({ product }) => {
           <div className="addToCartBtn">
             <button onClick={handleAddToCartBtn}>Add</button>
           </div>
+          <div className="counterBtn">
+            <button className="decrementBtn" onClick={handleDecreaseBtn}>
+              -
+            </button>
+            {2}
+            <button className="incrementBtn" onClick={handleIncreaseBtn}>
+              +
+            </button>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default ProductCard;
+export default CartCard;

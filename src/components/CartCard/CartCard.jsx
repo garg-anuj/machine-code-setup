@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart } from "../../store/cartSlice";
 
 import { EMPTY_OBJECT } from "./../../config/constantObj";
@@ -6,9 +6,16 @@ import { useNavigate } from "react-router-dom";
 import "./cartCard.css";
 
 const CartCard = ({ product }) => {
-  const { image = "", category, name, price, id } = product || EMPTY_OBJECT;
-  const cartSelector = useSelector((state) => state?.cart);
+  const {
+    image = "",
+    category,
+    name,
+    price,
+    id,
+    quantity,
+  } = product || EMPTY_OBJECT;
 
+  console.log(quantity);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -24,7 +31,7 @@ const CartCard = ({ product }) => {
 
   const handleDecreaseBtn = (event) => {
     event.stopPropagation();
-    dispatch(addToCart(product));
+    // dispatch(removeToCart(product));
   };
 
   return (
@@ -50,7 +57,7 @@ const CartCard = ({ product }) => {
             <button className="decrementBtn" onClick={handleDecreaseBtn}>
               -
             </button>
-            {2}
+            {quantity}
             <button className="incrementBtn" onClick={handleIncreaseBtn}>
               +
             </button>

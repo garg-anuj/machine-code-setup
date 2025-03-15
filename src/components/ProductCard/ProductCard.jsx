@@ -3,17 +3,25 @@ import { addToCart } from "../../store/cartSlice";
 
 import { EMPTY_OBJECT } from "./../../config/constantObj";
 import "./productCard.css";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
-  const { image = "", category, name, price } = product || EMPTY_OBJECT;
+  const { image = "", category, name, price, id } = product || EMPTY_OBJECT;
+
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleAddToCartBtn = () => {
     dispatch(addToCart(product));
   };
 
   return (
-    <div className="productCardContainer">
+    <div
+      className="productCardContainer"
+      onClick={() => {
+        navigate(`/product/${id}`);
+      }}
+    >
       <div className="productBox">
         <div className="">
           <img src={image} alt={name} className="img-fluid" />

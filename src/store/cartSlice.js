@@ -14,7 +14,8 @@ export const cartSlice = createSlice({
       const newItem = action.payload;
       const existingItem = state.items.find((item) => item?.id === newItem?.id);
       if (existingItem) {
-        existingItem.totalQuantity += newItem?.quantity;
+        // existingItem.totalQuantity += newItem?.quantity;
+        existingItem.quantity++;
       } else {
         state.items.push({
           ...newItem,
@@ -24,7 +25,6 @@ export const cartSlice = createSlice({
       }
       state.totalQuantity++;
       state.totalAmount = state.items.reduce((total, item) => {
-        console.log(item, total);
         total = total + item?.price;
         return total;
       }, 0);

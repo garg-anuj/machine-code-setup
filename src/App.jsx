@@ -7,6 +7,7 @@ import Cart from "./pages/Cart";
 
 import { URL } from "./config/Urls";
 import "./App.css";
+import ProductDetail from "./pages/ProductDetail";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path={URL.HOME_PAGE} element={<ProductListing />} />
         <Route path={URL.CART} element={<Cart />} />
+        <Route path={URL.PRODUCT_DETAIL} element={<ProductDetail />} />
       </Routes>
 
       <Footer />

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../../store/cartSlice";
+import { useCallback } from "react";
 
 import { EMPTY_OBJECT } from "./../../config/constantObj";
 import "./cartCard.css";
@@ -23,15 +24,21 @@ const CartCard = ({ product }) => {
   //   dispatch(addToCart(product));
   // };
 
-  const handleIncreaseBtn = (event) => {
-    event.stopPropagation();
-    dispatch(addToCart(product));
-  };
+  const handleIncreaseBtn = useCallback(
+    (event) => {
+      event.stopPropagation();
+      dispatch(addToCart(product));
+    },
+    [dispatch, product]
+  );
 
-  const handleDecreaseBtn = (event) => {
-    event.stopPropagation();
-    dispatch(removeFromCart(id));
-  };
+  const handleDecreaseBtn = useCallback(
+    (event) => {
+      event.stopPropagation();
+      dispatch(removeFromCart(id));
+    },
+    [dispatch, id]
+  );
 
   return (
     <div

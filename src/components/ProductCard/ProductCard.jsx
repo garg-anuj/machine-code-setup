@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../../store/cartSlice";
+import { useCallback } from "react";
 
 import { EMPTY_OBJECT } from "./../../config/constantObj";
 import "./productCard.css";
@@ -11,10 +12,13 @@ const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleAddToCartBtn = (event) => {
-    event.stopPropagation();
-    dispatch(addToCart(product));
-  };
+  const handleAddToCartBtn = useCallback(
+    (event) => {
+      event.stopPropagation();
+      dispatch(addToCart(product));
+    },
+    [dispatch, product]
+  );
 
   return (
     <div

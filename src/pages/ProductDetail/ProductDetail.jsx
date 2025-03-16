@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { EMPTY_OBJECT } from "../../config/constantObj";
 
 import "./productDetails.css";
+import AddToCartBtn from "../../components/AddToCartBtn/AddToCartBtn";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -14,7 +15,7 @@ const ProductDetail = () => {
         const response = await axios.get(
           `https://fakestoreapi.com/products/${id}`
         );
-        setProduct(response.data);
+        setProduct({ ...response.data, quantity: 0 });
       } catch (err) {
         console.error(err);
       }
@@ -39,6 +40,10 @@ const ProductDetail = () => {
           <div>
             <div>Description :- </div>
             {description}
+          </div>
+
+          <div className="py-3">
+            <AddToCartBtn product={product} />
           </div>
         </div>
       </div>

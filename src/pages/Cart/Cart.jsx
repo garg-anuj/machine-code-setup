@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import CartCard from "../../components/CartCard/CartCard";
+import ProductCard from "../../components/ProductCard/ProductCard";
 
 const Cart = () => {
   const selector = useSelector((state) => state?.cart);
@@ -15,7 +15,7 @@ const Cart = () => {
       {carts?.map((cart, idx) => {
         return (
           <div key={idx}>
-            <CartCard product={cart} />
+            <ProductCard product={cart} />
           </div>
         );
       })}

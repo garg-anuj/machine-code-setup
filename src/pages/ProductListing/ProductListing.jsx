@@ -1,6 +1,7 @@
-import ProductCard from "../../components/ProductCard/ProductCard";
-import { API_URl } from "../../config/apiUrl";
+import ProductCard from "../../components/ProductCard";
+
 import useApiFetcher from "../../hooks/useApiFetcher";
+import { API_URl } from "../../config/apiUrl";
 
 const ProductListing = () => {
   const [products, isProductLoading, error] = useApiFetcher(API_URl.PRODUCTS);

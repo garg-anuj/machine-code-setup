@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import AddToCartBtn from "../AddToCartBtn/AddToCartBtn";
+import AddToCartBtn from "../AddToCartBtn";
 
 import { EMPTY_OBJECT } from "./../../config/constantObj";
 import "./productCard.css";

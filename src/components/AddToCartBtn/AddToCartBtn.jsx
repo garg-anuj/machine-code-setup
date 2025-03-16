@@ -4,6 +4,7 @@ import { useCallback } from "react";
 
 import { EMPTY_OBJECT } from "../../config/constantObj";
 // import "./AddToCartBtn.css";
+import "./style.css";
 
 //  TODO : -  need to optimize instead of array we will store in cart item in hashMap
 

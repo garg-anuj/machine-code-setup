@@ -1,0 +1,56 @@
+/* .addToCartBtn {
+    border: 2px solid #318616;
+    border-radius: 0.5rem;
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+
+    button {
+        width: 100%;
+        border: none;
+        cursor: pointer;
+        padding: 0.25rem;
+        background-color: transparent;
+
+        &:hover {
+            color: #ffff;
+        }
+    }
+
+    &:hover {
+        background-color: #318616;
+    }
+}
+
+.counterBtn {
+    border: 2px solid #318616;
+    border-radius: 0.5rem;
+    min-width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+        width: 100%;
+        border: none;
+        cursor: pointer;
+        padding: 0.25rem;
+        background-color: transparent;
+
+        &:hover {
+            color: #ffff;
+        }
+    }
+
+    &:hover {
+        background-color: #318616;
+    }
+} */
+
+.addToCartBtn {
+    border: 2px solid #318616;
+
+    btn {
+        border: 2px solid red;
+    }
+}

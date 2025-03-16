@@ -8,6 +8,7 @@ import "./productDetails.css";
 const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const selector = useSelector(() => {});
   useEffect(() => {
     async function getData() {
       try {

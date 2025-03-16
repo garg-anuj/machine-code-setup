@@ -1,0 +1,24 @@
+.cartBtn {
+    position: relative;
+    font-size: 2rem;
+    cursor: pointer;
+    color: rgb(11, 44, 61);
+
+
+    .cartCount {
+        width: 1.5rem;
+        height: 1.5rem;
+        position: absolute;
+        z-index: 1;
+        right: -.75rem;
+        top: .25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: .75rem;
+        background-color: #ef750f;
+        color: #fff;
+        font-weight: 500;
+        border-radius: 50%;
+    }
+}

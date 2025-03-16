@@ -5,7 +5,7 @@ import { useCallback } from "react";
 import { EMPTY_OBJECT } from "../../config/constantObj";
 import "./addToCartBtn.css";
 
-//  TODO :-  need to optimize instead of array we will store in cart item in hashMap
+//  TODO : -  need to optimize instead of array we will store in cart item in hashMap
 
 const AddToCartBtn = ({ product }) => {
   const dispatch = useDispatch();

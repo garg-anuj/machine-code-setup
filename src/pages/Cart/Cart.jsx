@@ -10,7 +10,7 @@ const Cart = () => {
   const carts = selector?.items;
   const totalPrice = selector?.totalAmount;
   return (
-    <div className="h-100">
+    <div className="h-100 w-25">
       <div> Total Amount : {Math.floor(totalPrice)}</div>
       {carts?.map((cart, idx) => {
         return (

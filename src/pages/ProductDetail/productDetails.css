@@ -2,6 +2,12 @@
     display: flex;
     justify-content: space-between;
     height: 100vh;
+
+    img {
+        max-height: 400px;
+        max-width: 400px;
+        object-fit: cover;
+    }
 }
 
 .productionDetailInfo {

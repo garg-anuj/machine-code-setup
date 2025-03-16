@@ -55,8 +55,8 @@ const CartCard = ({ product }) => {
         <div className="productName">{category}</div>
 
         <div className="d-flex justify-content-around align-content-center w-100 pt-2">
-          {/* <div> {Math.floor(price)}$</div>
-          <div className="addToCartBtn">
+          <div> {Math.floor(price)}$</div>
+          {/* <div className="addToCartBtn">
             <button onClick={handleAddToCartBtn}>Add</button>
           </div> */}
           <div className="counterBtn">

@@ -8,7 +8,6 @@ import "./productDetails.css";
 const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const selector = useSelector(() => {});
   useEffect(() => {
     async function getData() {
       try {
@@ -28,7 +27,7 @@ const ProductDetail = () => {
 
   return (
     <div className="container">
-      <div className="productionDetailBox">
+      <div className="productionDetailBox h-50">
         <div>
           <img className="img-fluid" src={image} alt={name} />
         </div>

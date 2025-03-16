@@ -1,27 +1,30 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { EMPTY_OBJECT } from "../../config/constantObj";
 
+import AddToCartBtn from "../../components/AddToCartBtn";
+
+import useApiFetcher from "../../hooks/useApiFetcher";
+import { EMPTY_OBJECT } from "../../config/constantObj";
+import { API_URl } from "../../config/apiUrl";
 import "./productDetails.css";
-import AddToCartBtn from "../../components/AddToCartBtn/AddToCartBtn";
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState(null);
-  useEffect(() => {
-    async function getData() {
-      try {
-        const response = await axios.get(
-          `https://fakestoreapi.com/products/${id}`
-        );
-        setProduct({ ...response.data, quantity: 0 });
-      } catch (err) {
-        console.error(err);
-      }
-    }
-    getData();
-  }, [id]);
+
+  const [product, isProductLoading, error] = useApiFetcher(
+    `${API_URl.PRODUCTS}${id}`
+  );
+
+  if (isProductLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (!product) {
+    return <div>No Products Found</div>;
+  }
 
   if (!product) return <div>Loading...</div>;
   const { image, title, price, description } = product || EMPTY_OBJECT;

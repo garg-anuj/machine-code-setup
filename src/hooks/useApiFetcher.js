@@ -11,13 +11,8 @@ const useApiFetcher = (url) => {
       setError(null);
       try {
         const response = await axios.get(url);
-        const responseData = response.data;
 
-        const newFormData = responseData.map((ele) => {
-          return { ...ele, quantity: 0 };
-        });
-
-        setData(newFormData);
+        setData(response.data);
       } catch (err) {
         setError(err);
       } finally {

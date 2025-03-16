@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <header>
-      <div className="border mb-3 d-flex justify-content-between py-2 px-5">
+      <div className="d-flex justify-content-between px-5">
         <button
           className="cursor-pointer border-0 rounded-2 px-4"
           onClick={() => navigate(URL.HOME_PAGE)}

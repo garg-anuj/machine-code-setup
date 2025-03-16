@@ -1,4 +1,4 @@
-/* .addToCartBtn {
+.addToCartBtn {
     border: 2px solid #318616;
     border-radius: 0.5rem;
     min-width: 60px;
@@ -44,13 +44,5 @@
 
     &:hover {
         background-color: #318616;
-    }
-} */
-
-.addToCartBtn {
-    border: 2px solid #318616;
-
-    btn {
-        border: 2px solid red;
     }
 }
